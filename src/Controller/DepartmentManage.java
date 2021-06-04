@@ -11,14 +11,18 @@ public class DepartmentManage {
 	Scanner sc = new Scanner(System.in);
 	Validation v = new Validation();
 	Department d = new Department();
+	ArrayList<SalariedEmployee> listOfSalaryEmployee = new ArrayList<>();
+	ArrayList<HourlyEmployee> listOfHourlyEmployee = new ArrayList<>();
+	SalariedEmployee se = new SalariedEmployee();
+	HourlyEmployee he = new HourlyEmployee();
 	
 	public void addEmployee() {
 		System.out.println("Do You Want To Add SalaryEmployee(1) or HourlyEmployee(2)?:");
 		int x = v.getValidInt(1, 2);
-		ArrayList<SalariedEmployee> listOfSalaryEmployee = new ArrayList<>();
-		ArrayList<HourlyEmployee> listOfHourlyEmployee = new ArrayList<>();
-		SalariedEmployee se = new SalariedEmployee();
-		HourlyEmployee he = new HourlyEmployee();
+//		ArrayList<SalariedEmployee> listOfSalaryEmployee = new ArrayList<>();
+//		ArrayList<HourlyEmployee> listOfHourlyEmployee = new ArrayList<>();
+//		SalariedEmployee se = new SalariedEmployee();
+//		HourlyEmployee he = new HourlyEmployee();
 		System.out.println("Enter SNN: ");
 		String ssn = sc.nextLine();
 		System.out.println("Enter FirstName: ");
@@ -71,11 +75,12 @@ public class DepartmentManage {
 		}	
 	}
 	
-	public void listDepartment() {
-		ArrayList<Department> departments = new ArrayList<>();
-		System.out.println("DeptName: ");
-		String deptName = sc.nextLine();
-		d.setDepartmentName(deptName);
-		departments.add(d);
+	public void displayEmployee() {
+		for (int i = 0; i < listOfSalaryEmployee.size(); i++) {
+            System.out.println(listOfSalaryEmployee.get(i));
+        }
+		for (int i = 0; i < listOfHourlyEmployee.size(); i++) {
+            System.out.println(listOfHourlyEmployee.get(i));
+        }
 	}
 }
